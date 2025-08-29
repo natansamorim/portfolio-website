@@ -2,112 +2,99 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- SELEÇÃO DE ELEMENTOS ---
-    const header = document.querySelector('.header');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.section,.hero');
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    const copyEmailBtn = document.getElementById('copy-email-btn');
-    const emailText = document.getElementById('email-text');
-    const typingElement = document.getElementById('typing-effect');
+    // --- ANIMAÇÕES COM GSAP ---
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animação do Hero Section
+    const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTimeline
+       .from('.hero-title', { opacity: 0, y: 30, duration: 0.8 })
+       .from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.6 }, "-=0.4")
+       .from('.hero-description', { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
+       .from('.btn-primary', { opacity: 0, scale: 0.9, duration: 0.5 }, "-=0.3");
+
+    // Animação dos Títulos das Seções
+    const sectionTitles = document.querySelectorAll('.section-title');
+    sectionTitles.forEach(title => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+    });
+
+    // Animação dos Cards de Projeto (Stagger)
+    gsap.from('.project-card', {
+        scrollTrigger: {
+            trigger: '.projects-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // Animação da Timeline
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            x: -50,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+    });
+
+    // Animação das Habilidades
+    gsap.from('.skill-item', {
+        scrollTrigger: {
+            trigger: '.skills-list',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.5,
+        stagger: 0.15,
+        ease: 'power3.out'
+    });
+
+    // Animação da Seção de Contato
+    gsap.from('.contact-container > *', {
+        scrollTrigger: {
+            trigger: '.contact-container',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
 
     // --- EFEITO DE SOMBRA NO HEADER AO ROLAR ---
+    const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+            header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.5)';
         } else {
-            header.classList.remove('scrolled');
+            header.style.boxShadow = 'none';
         }
     });
 
-    // --- DESTAQUE DO LINK DE NAVEGAÇÃO ATIVO ---
-    const observerOptionsNav = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.4 // 40% da seção visível
-    };
-
-    const navObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, observerOptionsNav);
-
-    sections.forEach(section => {
-        navObserver.observe(section);
-    });
-
-    // --- ANIMAÇÃO DOS ELEMENTOS AO ENTRAR NA TELA ---
-    const observerOptionsAnimate = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // 10% do elemento visível
-    };
-
-    const animateObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Para a animação ocorrer apenas uma vez
-            }
-        });
-    }, observerOptionsAnimate);
-
-    animatedElements.forEach(el => {
-        animateObserver.observe(el);
-    });
-
-    // --- FUNCIONALIDADE DE COPIAR E-MAIL ---
-    if (copyEmailBtn && emailText) {
-        copyEmailBtn.addEventListener('click', () => {
-            const email = emailText.textContent;
-            navigator.clipboard.writeText(email).then(() => {
-                // Feedback visual
-                const originalIcon = copyEmailBtn.innerHTML;
-                copyEmailBtn.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => {
-                    copyEmailBtn.innerHTML = originalIcon;
-                }, 2000);
-            }).catch(err => {
-                console.error('Falha ao copiar e-mail: ', err);
-            });
-        });
-    }
-
-    // --- EFEITO DE DIGITAÇÃO ---
-    if (typingElement) {
-        const words =;
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            const speed = isDeleting? 100 : 150;
-
-            if (isDeleting) {
-                typingElement.textContent = currentWord.substring(0, charIndex--);
-            } else {
-                typingElement.textContent = currentWord.substring(0, charIndex++);
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                setTimeout(() => isDeleting = true, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-            }
-
-            setTimeout(type, speed);
-        }
-        type();
-    }
 });
