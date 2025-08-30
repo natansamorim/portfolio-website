@@ -402,22 +402,22 @@ body {
 /* RESPONSIVIDADE */
 /* ------------------- */
 @media (max-width: 768px) {
-   .section {
+  .section {
         padding: 4rem 0;
     }
-   .section-title {
+  .section-title {
         font-size: 2.2rem;
     }
-   .nav-menu {
+  .nav-menu {
         display: none; /* Simplificado - para um menu funcional, seria necessário JS */
     }
-   .timeline::before {
+  .timeline::before {
         left: 20px;
     }
-   .timeline-item {
+  .timeline-item {
         padding-left: 60px;
     }
-   .company-logo {
+  .company-logo {
         width: 40px;
         height: 40px;
         padding: 5px;
