@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animação do Hero Section
     const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
     heroTimeline
-      .from('.hero-title', { opacity: 0, y: 30, duration: 0.8 })
-      .from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.6 }, "-=0.4")
-      .from('.hero-description', { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
-      .from('.btn-primary', { opacity: 0, scale: 0.9, duration: 0.5 }, "-=0.3");
+     .from('.hero-title', { opacity: 0, y: 30, duration: 0.8 })
+     .from('.hero-subtitle', { opacity: 0, y: 30, duration: 0.6 }, "-=0.4")
+     .from('.hero-description', { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
+     .from('.btn-primary', { opacity: 0, scale: 0.9, duration: 0.5 }, "-=0.3");
 
     // Animação dos Títulos das Seções
     const sectionTitles = document.querySelectorAll('.section-title');
