@@ -4,11 +4,11 @@
 /* VARIAVEIS E ESTILOS GLOBAIS */
 /* ------------------- */
 :root {
-    --color-primary: #FF7A00; /* Laranja para destaque e CTAs */
-    --color-background: #0A0A0A; /* Preto profundo para sofisticação */
-    --color-surface: #1A1A1A; /* Cinza escuro para cards */
-    --color-text: #F5F5F5; /* Branco suave para legibilidade */
-    --color-text-secondary: #A0A0A0; /* Cinza claro para textos de apoio */
+    --color-primary: #FF7A00; 
+    --color-background: #0A0A0A; 
+    --color-surface: #1A1A1A; 
+    --color-text: #F5F5F5; 
+    --color-text-secondary: #A0A0A0; 
     --color-border: #2A2A2A;
 
     --font-family: 'Poppins', sans-serif;
@@ -71,6 +71,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition-speed);
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -86,6 +87,16 @@ body {
 
 .btn-nav {
     padding: 0.6rem 1.5rem;
+}
+
+.contact-btn-whatsapp:hover {
+    background-color: #20b858 !important;
+    transform: translateY(-3px);
+}
+
+.contact-btn-email:hover {
+    background-color: #444 !important;
+    transform: translateY(-3px);
 }
 
 /* ------------------- */
@@ -215,19 +226,32 @@ body {
     border-color: var(--color-primary);
 }
 
-.project-image-placeholder {
+.project-image {
     width: 100%;
     height: 220px;
+    overflow: hidden;
     background-color: #2a2a2a;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-logo-bg {
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-secondary);
+    padding: 1.5rem;
 }
 
-.project-image-placeholder::before {
-    content: 'Imagem do Projeto';
-    font-style: italic;
+.project-logo-bg img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
 }
 
 .project-content {
@@ -266,7 +290,7 @@ body {
 }
 
 /* ------------------- */
-/* SEÇÃO EXPERIÊNCIA (TIMELINE) */
+/* SEÇÃO EXPERIÊNCIA (TIMELINE) REVISADA */
 /* ------------------- */
 .timeline {
     position: relative;
@@ -294,18 +318,26 @@ body {
     align-items: center;
 }
 
-.company-logo-placeholder {
+/* Diagramação Elegantee para Logos de diferentes tamanhos */
+.company-logo, .company-logo-placeholder {
     position: absolute;
     left: 0;
     width: 80px;
     height: 80px;
-    background-color: #fff;
+    background-color: #fff; /* Fundo branco padronizado */
     border-radius: 50%;
-    border: 3px solid var(--color-border);
+    border: 2px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-background);
+    overflow: hidden;
+    padding: 8px; /* Espaço de respiro para o logo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.company-logo-placeholder {
+    background-color: #f0f0f0;
+    color: #555;
     font-weight: 600;
     font-size: 0.8rem;
     text-align: center;
@@ -313,6 +345,14 @@ body {
 
 .company-logo-placeholder::before {
     content: 'Logo';
+}
+
+/* Técnica de contenção: Mantém proporção e exibe o logo inteiro */
+.company-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    display: block;
 }
 
 .timeline-content {
@@ -386,17 +426,9 @@ body {
     font-size: 1.1rem;
 }
 
-.contact-button {
-    font-size: 1.1rem;
-}
-
-.social-links {
-    margin-top: 2.5rem;
-}
-
 .social-icon {
     color: var(--color-text-secondary);
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 0 1rem;
     transition: var(--transition-speed);
 }
@@ -407,7 +439,70 @@ body {
 }
 
 /* ------------------- */
-/* BOTÃO WHATSAPP */
+/* RODAPÉ E MODAL */
+/* ------------------- */
+.footer {
+    background-color: #050505;
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.privacy-link {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: inherit;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    margin: 5% auto;
+    padding: 2.5rem;
+    border: 1px solid var(--color-border);
+    width: 90%;
+    max-width: 700px;
+    border-radius: 12px;
+    color: var(--color-text-secondary);
+}
+
+.modal-content p, .modal-content h3 {
+    text-align: left;
+}
+
+.close-modal {
+    color: var(--color-text);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--color-primary);
+}
+
+/* ------------------- */
+/* BOTÃO WHATSAPP FLUTUANTE */
 /* ------------------- */
 .whatsapp-float {
     position: fixed;
@@ -454,7 +549,7 @@ body {
         font-size: 2.2rem;
     }
   .nav-menu {
-        display: none; /* Simplificado - para um menu funcional, seria necessário JS */
+        display: none;
     }
   .timeline::before {
         left: 20px;
@@ -462,9 +557,9 @@ body {
   .timeline-item {
         padding-left: 60px;
     }
-  .company-logo-placeholder {
+  .company-logo, .company-logo-placeholder {
         width: 40px;
         height: 40px;
-        font-size: 0.6rem;
+        padding: 4px; /* Ajuste padding no mobile */
     }
 }
