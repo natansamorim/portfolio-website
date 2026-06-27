@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. ANIMAÇÕES COM GSAP (Anti-Bug da Tela Preta) ---
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero Section
     const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
     heroTimeline
      .from('.hero-text > *', { 
@@ -45,10 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
       })
      .from('.hero-image', { opacity: 0, scale: 0.95, duration: 1 }, "-=0.5");
 
-
     window.addEventListener('load', () => {
         
-        // Títulos
         const sectionTitles = document.querySelectorAll('.section-title');
         sectionTitles.forEach(title => {
             gsap.from(title, {
@@ -64,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cards: Animação separada um a um para evitar sumiço
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
             gsap.from(card, {
@@ -81,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Timeline
         const timelineItems = document.querySelectorAll('.timeline-item');
         timelineItems.forEach(item => {
             gsap.from(item, {
@@ -97,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Habilidades
         const skillItems = document.querySelectorAll('.skill-item');
         skillItems.forEach((skill, index) => {
             gsap.from(skill, {
@@ -114,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Contato
         gsap.from('.contact-container > *', {
             scrollTrigger: {
                 trigger: '.contact-container',
@@ -141,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`[Datalayer Push] Evento disparado: ${eventName}`, eventData);
     };
 
-    // Rastreamento dos botões de contato
     document.querySelectorAll('.whatsapp-float, #track-wa').forEach(btn => {
         btn.addEventListener('click', () => {
             trackEvent('generate_lead', { lead_type: 'whatsapp_click', source: 'portfolio' });
@@ -191,5 +183,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1500);
         });
     }
+
+    // --- 6. MENU ATIVO DURANTE O SCROLL ---
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3 // Dispara quando 30% da seção estiver visível
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    // Apenas links que apontam para a seção atual (ignorando o botão "Contato" se ele usar classe diferente, mas aqui validamos via href)
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 
 });
