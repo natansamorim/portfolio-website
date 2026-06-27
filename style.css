@@ -318,20 +318,19 @@ body {
     align-items: center;
 }
 
-/* Diagramação Elegantee para Logos de diferentes tamanhos */
 .company-logo, .company-logo-placeholder {
     position: absolute;
     left: 0;
     width: 80px;
     height: 80px;
-    background-color: #fff; /* Fundo branco padronizado */
+    background-color: #fff; 
     border-radius: 50%;
     border: 2px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 8px; /* Espaço de respiro para o logo */
+    padding: 8px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
@@ -347,7 +346,6 @@ body {
     content: 'Logo';
 }
 
-/* Técnica de contenção: Mantém proporção e exibe o logo inteiro */
 .company-logo img {
     max-width: 100%;
     max-height: 100%;
@@ -422,7 +420,7 @@ body {
 
 .contact-subtitle {
     color: var(--color-text-secondary);
-    margin: -3rem auto 2.5rem;
+    margin: 2rem auto 2.5rem;
     font-size: 1.1rem;
 }
 
@@ -489,7 +487,7 @@ body {
 }
 
 .close-modal {
-    color: var(--color-text);
+    color: var(--text);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -529,6 +527,54 @@ body {
 }
 
 /* ------------------- */
+/* FORMULÁRIO DE CONTATO (LEAD CAPTURE) */
+/* ------------------- */
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 550px;
+    margin: 2rem auto;
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.lead-form input,
+.lead-form textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    transition: var(--transition-speed);
+}
+
+.lead-form input:focus,
+.lead-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.2);
+}
+
+.lead-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn-form {
+    width: 100%;
+    border: none;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* ------------------- */
 /* RESPONSIVIDADE */
 /* ------------------- */
 @media (max-width: 992px) {
@@ -560,6 +606,6 @@ body {
   .company-logo, .company-logo-placeholder {
         width: 40px;
         height: 40px;
-        padding: 4px; /* Ajuste padding no mobile */
+        padding: 4px; 
     }
 }
