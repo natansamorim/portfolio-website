@@ -107,7 +107,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(10, 10, 10, 0.7);
+    background-color: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition-speed);
@@ -144,6 +144,22 @@ body {
 
 .nav-link:hover {
     color: var(--color-primary);
+}
+
+/* Classe Ativa Dinâmica do JavaScript */
+.nav-link.active {
+    color: var(--color-primary);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
 }
 
 /* ------------------- */
@@ -290,7 +306,7 @@ body {
 }
 
 /* ------------------- */
-/* SEÇÃO EXPERIÊNCIA (TIMELINE) REVISADA */
+/* SEÇÃO EXPERIÊNCIA (TIMELINE) */
 /* ------------------- */
 .timeline {
     position: relative;
@@ -487,7 +503,7 @@ body {
 }
 
 .close-modal {
-    color: var(--text);
+    color: var(--color-text);
     float: right;
     font-size: 28px;
     font-weight: bold;
