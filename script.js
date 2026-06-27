@@ -46,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
      .from('.hero-image', { opacity: 0, scale: 0.95, duration: 1 }, "-=0.5");
 
 
-    // window.load garante que o Javascript só vai calcular o scroll
-    // DEPOIS que todas as imagens tiverem carregado.
     window.addEventListener('load', () => {
         
         // Títulos
@@ -130,8 +128,68 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: 'power3.out'
         });
 
-        // Força a atualização do GSAP (segurança extra)
         ScrollTrigger.refresh();
     });
+
+    // --- 4. DATA LAYER E ANALYTICS (GA4) ---
+    const trackEvent = (eventName, eventData) => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: eventName,
+            ...eventData
+        });
+        console.log(`[Datalayer Push] Evento disparado: ${eventName}`, eventData);
+    };
+
+    // Rastreamento dos botões de contato
+    document.querySelectorAll('.whatsapp-float, #track-wa').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('generate_lead', { lead_type: 'whatsapp_click', source: 'portfolio' });
+        });
+    });
+
+    const emailBtn = document.getElementById('track-email');
+    if (emailBtn) {
+        emailBtn.addEventListener('click', () => {
+            trackEvent('generate_lead', { lead_type: 'email_click', source: 'portfolio' });
+        });
+    }
+
+    // --- 5. SIMULAÇÃO DE INTEGRAÇÃO COM CRM (Ex: Lofty) ---
+    const leadForm = document.getElementById('lead-form');
+    if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const btnSubmit = leadForm.querySelector('button[type="submit"]');
+            const originalText = btnSubmit.innerText;
+            
+            const formData = {
+                name: document.getElementById('lead-name').value,
+                email: document.getElementById('lead-email').value,
+                message: document.getElementById('lead-message').value,
+                tags: ['portfolio_lead', 'high_ticket_prospect']
+            };
+
+            trackEvent('form_submission', { form_id: 'contact_form', lead_status: 'captured' });
+
+            btnSubmit.innerText = 'Enviando dados...';
+            btnSubmit.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                console.log('Payload que seria enviado ao CRM:', formData);
+                
+                btnSubmit.innerText = 'Mensagem Enviada com Sucesso!';
+                btnSubmit.style.backgroundColor = '#25D366'; 
+                btnSubmit.style.opacity = '1';
+                leadForm.reset();
+                
+                setTimeout(() => {
+                    btnSubmit.innerText = originalText;
+                    btnSubmit.style.backgroundColor = '';
+                }, 4000);
+            }, 1500);
+        });
+    }
 
 });
