@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 5. SIMULAÇÃO DE INTEGRAÇÃO COM CRM (Ex: Lofty) ---
+    // --- 5. INTEGRAÇÃO COM WHATSAPP ---
     const leadForm = document.getElementById('lead-form');
     if (leadForm) {
         leadForm.addEventListener('submit', (e) => {
@@ -156,22 +156,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnSubmit = leadForm.querySelector('button[type="submit"]');
             const originalText = btnSubmit.innerText;
             
-            const formData = {
-                name: document.getElementById('lead-name').value,
-                email: document.getElementById('lead-email').value,
-                message: document.getElementById('lead-message').value,
-                tags: ['portfolio_lead', 'high_ticket_prospect']
-            };
+            // 1. Coleta os dados digitados
+            const name = document.getElementById('lead-name').value;
+            const email = document.getElementById('lead-email').value;
+            const message = document.getElementById('lead-message').value;
 
-            trackEvent('form_submission', { form_id: 'contact_form', lead_status: 'captured' });
+            // 2. Dispara evento de conversão no GA4
+            trackEvent('form_submission', { form_id: 'contact_form', lead_status: 'redirecting_to_whatsapp' });
 
-            btnSubmit.innerText = 'Enviando dados...';
+            // 3. Muda o botão para mostrar que está carregando
+            btnSubmit.innerText = 'Abrindo WhatsApp...';
             btnSubmit.style.opacity = '0.8';
             
+            // 4. Monta a URL do WhatsApp com o texto pré-formatado
+            const numeroWhatsApp = '5562999593986';
+            const textoWhatsApp = `Olá Natan! Vim pelo seu portfólio.\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*Projeto/Objetivo:* ${message}`;
+            const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoWhatsApp)}`;
+            
+            // 5. Redireciona o usuário (com um leve atraso para garantir o envio do evento pro GA4)
             setTimeout(() => {
-                console.log('Payload que seria enviado ao CRM:', formData);
+                window.open(linkWhatsApp, '_blank'); // Abre em nova aba
                 
-                btnSubmit.innerText = 'Mensagem Enviada com Sucesso!';
+                // Reseta visualmente o formulário no seu site
+                btnSubmit.innerText = 'Redirecionado com Sucesso!';
                 btnSubmit.style.backgroundColor = '#25D366'; 
                 btnSubmit.style.opacity = '1';
                 leadForm.reset();
@@ -180,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     btnSubmit.innerText = originalText;
                     btnSubmit.style.backgroundColor = '';
                 }, 4000);
-            }, 1500);
+            }, 800);
         });
     }
 
@@ -191,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3 // Dispara quando 30% da seção estiver visível
+        threshold: 0.3
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -200,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentId = entry.target.getAttribute('id');
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    // Apenas links que apontam para a seção atual (ignorando o botão "Contato" se ele usar classe diferente, mas aqui validamos via href)
                     if (link.getAttribute('href') === `#${currentId}`) {
                         link.classList.add('active');
                     }
