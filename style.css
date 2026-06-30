@@ -688,11 +688,8 @@ body {
 .ig-container {
     width: 100%;
     max-width: 400px;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
     border-radius: 12px;
-    overflow: hidden;
-    background-color: #fff; /* Fundo branco nativo do instagram */
 }
 
 /* ------------------- */
