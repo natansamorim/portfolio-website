@@ -146,7 +146,6 @@ body {
     color: var(--color-primary);
 }
 
-/* Classe Ativa Dinâmica do JavaScript */
 .nav-link.active {
     color: var(--color-primary);
 }
@@ -591,6 +590,112 @@ body {
 }
 
 /* ------------------- */
+/* ESTILO BEHANCE PORTFOLIO */
+/* ------------------- */
+.behance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.behance-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+    aspect-ratio: 16/10;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+}
+
+.behance-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.behance-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 50%, transparent 100%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transition: opacity 0.4s ease;
+}
+
+.behance-card:hover img {
+    transform: scale(1.08);
+}
+
+.behance-card:hover .behance-overlay {
+    opacity: 1;
+}
+
+.behance-title {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.behance-desc {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    transition-delay: 0.05s;
+}
+
+.behance-tag {
+    align-self: flex-start;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    transition-delay: 0.1s;
+}
+
+.behance-card:hover .behance-title,
+.behance-card:hover .behance-desc,
+.behance-card:hover .behance-tag {
+    transform: translateY(0);
+}
+
+/* ------------------- */
+/* GRID INSTAGRAM EMBED */
+/* ------------------- */
+.ig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 3rem;
+}
+
+.ig-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff; /* Fundo branco nativo do instagram */
+}
+
+/* ------------------- */
 /* RESPONSIVIDADE */
 /* ------------------- */
 @media (max-width: 992px) {
@@ -624,4 +729,7 @@ body {
         height: 40px;
         padding: 4px; 
     }
+  .behance-grid {
+      grid-template-columns: 1fr;
+  }
 }
