@@ -1,6 +1,7 @@
 // script.js
 
 // --- 0. IMPORTAÇÕES DO FIREBASE ---
+// Usamos a versão compatível com navegadores nativos (CDN)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -19,7 +20,7 @@ const firebaseConfig = {
 // Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const db = getFirestore(app); 
+const db = getFirestore(app); // Inicia o Banco de Dados
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- INTEGRAÇÃO FIRESTORE E WHATSAPP ---
     const leadForm = document.getElementById('lead-form');
     if (leadForm) {
-        // Função async para aguardar a gravação no Firebase
+        // Agora a função é "async" para aguardar a resposta do banco de dados
         leadForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -112,22 +113,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('lead-email').value;
             const message = document.getElementById('lead-message').value;
 
+            // Muda visualmente o botão
             btnSubmit.innerText = 'Salvando no banco de dados...';
             btnSubmit.style.opacity = '0.8';
 
             try {
-                // 1. Grava no Firebase Firestore
+                // 1. Tenta gravar as informações no Firebase (Coleção "leads")
                 await addDoc(collection(db, "leads"), {
                     nome: name,
                     email: email,
                     mensagem: message,
-                    data_envio: serverTimestamp() 
+                    data_envio: serverTimestamp() // Puxa o horário exato do servidor
                 });
 
-                // 2. Dispara evento pro Analytics
+                // 2. Avisa ao Analytics que o lead foi salvo com sucesso
                 trackEvent('form_submission', { form_id: 'contact_form', lead_status: 'captured_and_redirecting' });
 
-                // 3. Abre o WhatsApp com a mensagem pronta
+                // 3. Monta e dispara o WhatsApp
                 btnSubmit.innerText = 'Abrindo WhatsApp...';
                 const numeroWhatsApp = '5562999593986';
                 const textoWhatsApp = `Olá Natan! Vim pelo seu portfólio.\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*Projeto/Objetivo:* ${message}`;
@@ -147,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 800);
 
             } catch (error) {
+                // Se houver algum bloqueio ou falha na internet do cliente
                 console.error("Erro ao salvar lead no Firebase: ", error);
                 alert("Ocorreu um pequeno erro de rede. Por favor, tente enviar novamente ou chame diretamente no botão do WhatsApp!");
                 btnSubmit.innerText = originalText;
