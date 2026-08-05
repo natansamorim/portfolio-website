@@ -1,71 +1,160 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natan Santiago | Especialista em Marketing Digital & Desenvolvimento Web com foco em IA</title>
-    <meta name="description" content="Portfólio de Natan Santiago, profissional com experiência internacional combinando expertise técnica em desenvolvimento web com estratégias avançadas de marketing digital e análise de dados.">
+    <title>Natan Santiago | Digital Marketing & Web Development Specialist with AI Focus</title>
+    <meta name="description" content="Portfolio of Natan Santiago, a professional with international experience combining technical web development expertise with advanced digital marketing and data analysis strategies.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <a href="https://wa.me/5562999593986?text=Ol%C3%A1!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." class="whatsapp-float" target="_blank" aria-label="Conversar no WhatsApp">
+    <div class="scroll-progress"></div>
+    <div class="cursor-spotlight"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+
+    <aside class="rail">
+        <a href="#hero" class="rail-mark">NS</a>
+        <div class="rail-ruler"><span class="rail-progress-dot"></span></div>
+        <div class="rail-clock">
+            <span class="rail-clock-dot"></span>
+            <span class="rail-clock-time" id="railTime">--:--</span>
+            <span class="rail-clock-label">San Diego</span>
+        </div>
+    </aside>
+
+    <a href="https://wa.me/5562999593986?text=Hello!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20chat." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- MENU ATUALIZADO -->
     <header class="header">
         <nav class="nav container">
             <a href="#hero" class="nav-logo">Natan Santiago</a>
             <ul class="nav-menu">
-                <li><a href="#projects" class="nav-link">Cases</a></li>
-                <li><a href="portfolio-criativo.html" class="nav-link">Portfólio Criativo</a></li>
-                <li><a href="#experience" class="nav-link">Experiência</a></li>
-                <li><a href="#contact" class="nav-link btn btn-nav">Contato</a></li>
+                <li><a href="#projects" class="nav-link">Success Stories</a></li>
+                <li><a href="portfolio-criativo.html" class="nav-link">Creative Portfolio</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link btn btn-nav">Contact</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
     <main>
 
         <section id="hero" class="hero">
+            <span class="ambient-orb ambient-orb--one"></span>
+            <span class="ambient-orb ambient-orb--two"></span>
             <div class="hero-content container">
                 <div class="hero-text">
-                    <h1 class="hero-title">Natan Santiago</h1>
-                    <p class="hero-subtitle">Estrategista de Marketing Digital & Especialista em IA</p>
-                    <p class="hero-description">Profissional de marketing com forte atuação internacional como estrategista em agências. Especialista na criação de ecossistemas de conversão omnichannel e gestão de orçamentos expressivos, integrando CRMs de alta performance, como o Lofty, com o tráfego pago nos mercados da América do Sul e Califórnia. Trago a Inteligência Artificial para o centro da operação comercial, automatizando demandas e elevando a captação de leads para os segmentos gastronômico e imobiliário de alto padrão.</p>
-                    <a href="#contact" class="btn btn-primary">Vamos conversar sobre seu próximo projeto?</a>
+                    <span class="hero-eyebrow"><span class="dot"></span> Open for new partnerships</span>
+                    <h1 class="hero-title">Natan <em>Santiago</em></h1>
+                    <p class="hero-subtitle">Digital Marketing Strategist &amp; AI Specialist</p>
+
+                    <div class="hero-meta">
+                        <div class="hero-meta-row">
+                            <span class="hero-meta-label">Based in</span>
+                            <span class="hero-meta-value">San Diego, CA</span>
+                        </div>
+                        <div class="hero-meta-row">
+                            <span class="hero-meta-label">Focus</span>
+                            <span class="hero-meta-value">Paid Media, GA4, Generative AI</span>
+                        </div>
+                        <div class="hero-meta-row">
+                            <span class="hero-meta-label">Status</span>
+                            <span class="hero-meta-value">Accepting new clients</span>
+                        </div>
+                    </div>
+
+                    <p class="hero-description">I build omnichannel conversion ecosystems and manage large-scale budgets, integrating high-performance CRMs like Lofty with paid traffic across South American and California markets — placing Artificial Intelligence at the core of the operation to automate workflows and scale lead generation for high-end real estate and hospitality brands.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary magnetic">Let's talk about your next project</a>
+                        <a href="#projects" class="hero-link-secondary">See the results <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Equipe de marketing estratégico analisando dados de performance">
+                <div class="hero-visual">
+                    <div class="signal-panel">
+                        <div class="signal-panel-header">
+                            <span>Campaign Signal</span>
+                            <span class="live"><span class="dot"></span> Selected results</span>
+                        </div>
+                        <svg class="signal-chart" viewBox="0 0 400 100" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="signalGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#FF5A1F" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#FF5A1F" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="area" d="M0,80 C40,75 60,55 90,50 C130,43 150,60 190,52 C230,44 250,20 290,18 C330,16 360,30 400,10 L400,100 L0,100 Z"/>
+                            <path class="line" d="M0,80 C40,75 60,55 90,50 C130,43 150,60 190,52 C230,44 250,20 290,18 C330,16 360,30 400,10"/>
+                        </svg>
+                        <div class="signal-stats">
+                            <div>
+                                <div class="signal-stat-label">Reach</div>
+                                <div class="signal-stat-value" data-target="80000" data-suffix="+">0</div>
+                            </div>
+                            <div>
+                                <div class="signal-stat-label">Avg. CPR</div>
+                                <div class="signal-stat-value accent" data-target="0.22" data-prefix="$">$0.00</div>
+                            </div>
+                            <div>
+                                <div class="signal-stat-label">Revenue Lift</div>
+                                <div class="signal-stat-value" data-target="40" data-prefix="+$" data-suffix="k">+$0k</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="signal-caption"><strong>Fig. 1</strong> — Reach, cost efficiency and revenue lift, aggregated from active real estate &amp; hospitality campaigns.</p>
                 </div>
             </div>
         </section>
 
+        <div class="ticker-wrap">
+            <div class="ticker-track">
+                <span><i class="fab fa-google"></i> Google Ads</span>
+                <span><i class="fab fa-meta"></i> Meta Ads</span>
+                <span><i class="fas fa-chart-line"></i> GA4</span>
+                <span><i class="fas fa-fire"></i> Firebase</span>
+                <span><i class="fas fa-robot"></i> Generative AI</span>
+                <span><i class="fab fa-tiktok"></i> TikTok Ads</span>
+                <span><i class="fab fa-linkedin"></i> LinkedIn Ads</span>
+                <span><i class="fas fa-palette"></i> Adobe Creative Cloud</span>
+                <span><i class="fab fa-google"></i> Google Ads</span>
+                <span><i class="fab fa-meta"></i> Meta Ads</span>
+                <span><i class="fas fa-chart-line"></i> GA4</span>
+                <span><i class="fas fa-fire"></i> Firebase</span>
+                <span><i class="fas fa-robot"></i> Generative AI</span>
+                <span><i class="fab fa-tiktok"></i> TikTok Ads</span>
+                <span><i class="fab fa-linkedin"></i> LinkedIn Ads</span>
+                <span><i class="fas fa-palette"></i> Adobe Creative Cloud</span>
+            </div>
+        </div>
+
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Cases de Sucesso</h2>
+                <div class="section-header">
+                    <span class="section-mark">Track Record</span>
+                    <h2 class="section-title">Success stories, told in numbers</h2>
+                </div>
                 <div class="projects-grid">
-                    
-                    <article class="project-card">
+
+                    <article class="project-card tilt-card">
                         <div class="project-image">
-                            <img src="https://img.chime.me/imageemb/mls-listing/976/250031360/a772d3c5/1756478378/w1200_original_FMhLDoQgDAbgG9HSDkOY2xT6k1n4IEpivL1x-_3nHOePqPkWDtgy7w54aPv6EkXJJIlZo36ZtHRWq12Mc_moAYCbonoqJjGHC3U8AQAA__8-jpg.webp" alt="Propriedade de luxo para campanha de Real Estate em San Diego" loading="lazy">
+                            <img src="https://img.chime.me/imageemb/mls-listing/976/250031360/a772d3c5/1756478378/w1200_original_FMhLDoQgDAbgG9HSDkOY2xT6k1n4IEpivL1x-_3nHOePqPkWDtgy7w54aPv6EkXJJIlZo36ZtHRWq12Mc_moAYCbonoqJjGHC3U8AQAA__8-jpg.webp" alt="Luxury property for Real Estate campaign in San Diego" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Luxury Real Estate</h3>
-                            <p class="project-description">Geração de leads qualificados para imóveis de alto padrão acima de $1 milhão em San Diego. Alcance de 80k+ contas e custo por resultado de $0,22.</p>
+                            <p class="project-description">Generated qualified leads for high-end properties over $1 million in San Diego. Reached 80k+ accounts with a cost per result of $0.22.</p>
                             <div class="project-tags">
                                 <span>Google Ads</span>
                                 <span>Meta Ads</span>
@@ -74,32 +163,32 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card tilt-card">
                         <div class="project-image">
-                            <img src="https://prod-thl-retail.xperience-sites.com/getmedia/41626ad2-ec17-428a-81e5-99e505bdbcf0/elmontervcom_rvclass_lifestyle_graphics_class_a_9.jpg" alt="Trailer de luxo da campanha RV Rental & Repairs" loading="lazy">
+                            <img src="https://prod-thl-retail.xperience-sites.com/getmedia/41626ad2-ec17-428a-81e5-99e505bdbcf0/elmontervcom_rvclass_lifestyle_graphics_class_a_9.jpg" alt="Luxury RV for Rental & Repairs campaign" loading="lazy">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">RV Rental & Repairs</h3>
-                            <p class="project-description">Campanhas multicanal sazonais de alta conversão. Faturamento extra de +$40.000 em aluguéis e reparos no primeiro mês de operação.</p>
+                            <h3 class="project-title">RV Rental &amp; Repairs</h3>
+                            <p class="project-description">High-conversion seasonal multichannel campaigns. Generated an extra +$40,000 in rentals and repairs revenue within the first month of operation.</p>
                             <div class="project-tags">
                                 <span>Performance</span>
                                 <span>Google Ads</span>
-                                <span>Escala de Receita</span>
+                                <span>Revenue Scaling</span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card tilt-card">
                         <div class="project-image project-logo-bg">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJf3vWTWALE7fX36hYM5zC0xgjqe3lOxrmtw&s" alt="Logo Lallemand Animal Nutrition" loading="lazy">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJf3vWTWALE7fX36hYM5zC0xgjqe3lOxrmtw&s" alt="Lallemand Animal Nutrition Logo" loading="lazy">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Lallemand Nutrition</h3>
-                            <p class="project-description">Estratégia integrada de conteúdo B2B na América do Sul. Mais de R$ 100 mil gerados em receita de forma 100% orgânica.</p>
+                            <p class="project-description">Integrated B2B content strategy in South America. Generated over R$ 100,000 in tracked revenue entirely organically.</p>
                             <div class="project-tags">
-                                <span>Social Media B2B</span>
-                                <span>Conteúdo Orgânico</span>
-                                <span>Estratégia</span>
+                                <span>B2B Social Media</span>
+                                <span>Organic Content</span>
+                                <span>Strategy</span>
                             </div>
                         </div>
                     </article>
@@ -107,74 +196,79 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 3.5rem;">
-                    <a href="cases.html" class="btn btn-primary">Ver Todos os Cases Detalhados</a>
+                    <a href="cases.html" class="btn btn-primary magnetic">View All Detailed Cases</a>
                 </div>
             </div>
         </section>
 
-        <!-- NOVA SEÇÃO: CHAMADA PARA O PORTFÓLIO CRIATIVO -->
-        <section id="creative-teaser" class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <section id="creative-teaser" class="section" style="background-color: var(--bg-elevated);">
             <div class="container" style="text-align: center;">
-                <h2 class="section-title" style="margin-bottom: 1rem;">Design & Audiovisual</h2>
-                <p style="color: var(--color-text-secondary); max-width: 750px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                    Além da estratégia de mídia paga, atuo ativamente na direção de arte, branding e edição de vídeos de alta retenção, integrando ferramentas de Inteligência Artificial para escalar os criativos.
+                <div class="section-header centered">
+                    <span class="section-mark">Beyond the Numbers</span>
+                    <h2 class="section-title">Design &amp; audiovisual, the other half of the work</h2>
+                </div>
+                <p style="color: var(--text-secondary); max-width: 750px; margin: -1.5rem auto 2.5rem; font-size: 1.1rem;">
+                    Beyond paid media strategy, I actively work in art direction, branding, and high-retention video editing, integrating Artificial Intelligence tools to scale creatives.
                 </p>
-                <a href="portfolio-criativo.html" class="btn btn-primary" style="background-color: #0057ff; box-shadow: 0 4px 15px rgba(0, 87, 255, 0.3); font-size: 1.1rem; padding: 1rem 2.5rem;">
-                    <i class="fas fa-play-circle" style="margin-right: 8px;"></i> Acessar Portfólio Criativo
+                <a href="portfolio-criativo.html" class="btn btn-primary magnetic" style="font-size: 1rem; padding: 1rem 2.2rem;">
+                    <i class="fas fa-play-circle"></i> Access Creative Portfolio
                 </a>
             </div>
         </section>
 
         <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title">Jornada Profissional</h2>
+                <div class="section-header">
+                    <span class="section-mark">Professional Journey</span>
+                    <h2 class="section-title">Where the results were made</h2>
+                </div>
                 <div class="timeline">
-                    
+
                     <div class="timeline-item">
                         <div class="company-logo">
-                            <img src="https://scontent-lax3-1.xx.fbcdn.net/v/t39.30808-1/463493541_8803762269676509_8337519979794768771_n.jpg?stp=dst-jpg_tt6&cstp=mx1563x1563&ctp=s200x200&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=F8nIGMcbzBEQ7kNvwHqOnCR&_nc_oc=AdpmuhDTW4XTuHg-oHasGp9aA71RmJCJwDibGHbpWQAWNM1wqD8thMNdr_FMzLCSYOc&_nc_zt=24&_nc_ht=scontent-lax3-1.xx&_nc_gid=Se67sDRx_L65r2t1ARXtvg&_nc_ss=792a8&oh=00_Af_72dWfr07pKPLFNN68odpxprvCQJWz3gQDsXEXc1bShA&oe=6A433C87" alt="Logo In.Terest Marketing" loading="lazy">
+                            <img src="https://scontent-lax3-1.xx.fbcdn.net/v/t39.30808-1/463493541_8803762269676509_8337519979794768771_n.jpg?stp=dst-jpg_tt6&cstp=mx1563x1563&ctp=s200x200&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=F8nIGMcbzBEQ7kNvwHqOnCR&_nc_oc=AdpmuhDTW4XTuHg-oHasGp9aA71RmJCJwDibGHbpWQAWNM1wqD8thMNdr_FMzLCSYOc&_nc_zt=24&_nc_ht=scontent-lax3-1.xx&_nc_gid=Se67sDRx_L65r2t1ARXtvg&_nc_ss=792a8&oh=00_Af_72dWfr07pKPLFNN68odpxprvCQJWz3gQDsXEXc1bShA&oe=6A433C87" alt="In.Terest Marketing Logo" loading="lazy">
                         </div>
                         <div class="timeline-content">
-                            <span class="timeline-date">Janeiro 2026 - Atual</span>
-                            <h3 class="timeline-title">Estrategista de Marketing & Gestor de Tráfego</h3>
+                            <span class="timeline-date">January 2026 - Present</span>
+                            <h3 class="timeline-title">Marketing Strategist &amp; Media Buyer</h3>
                             <h4 class="timeline-company">In.Terest Marketing | San Diego, CA</h4>
-                            <p>Atuação como estrategista em mídia paga para clientes de diversos segmentos, incluindo real estate de luxo e hospitalidade. Responsável pelo planejamento e execução de campanhas de tráfego, gestão de orçamentos de alta escala e integração contínua de leads no CRM Lofty. No primeiro mês de operação, as campanhas sob minha gestão direta geraram aumentos de receita de +$23k e +$17k para clientes distintos, liderando a captação qualificada para imóveis avaliados entre $1 milhão e $4 milhões.</p>
+                            <p>Acting as a paid media strategist for clients in various sectors, including luxury real estate and hospitality. Responsible for campaign planning and execution, managing large-scale budgets, and seamlessly integrating leads into the Lofty CRM. In the first month of operation, campaigns under my direct management generated revenue increases of +$23k and +$17k for distinct clients, spearheading qualified lead capture for properties valued between $1 million and $4 million.</p>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item">
                         <div class="company-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJf3vWTWALE7fX36hYM5zC0xgjqe3lOxrmtw&s" alt="Logo Lallemand Animal Nutrition" loading="lazy">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJf3vWTWALE7fX36hYM5zC0xgjqe3lOxrmtw&s" alt="Lallemand Animal Nutrition Logo" loading="lazy">
                         </div>
                         <div class="timeline-content">
-                            <span class="timeline-date">Abril 2023 - Atual</span>
-                            <h3 class="timeline-title">Especialista em Marketing Digital | Internacional</h3>
+                            <span class="timeline-date">April 2023 - Present</span>
+                            <h3 class="timeline-title">Digital Marketing Specialist | International</h3>
                             <h4 class="timeline-company">Lallemand Animal Nutrition</h4>
-                            <p>Atuação em campanhas para toda a América do Sul, criação de podcasts, webséries e identidade visual para programas internos.</p>
+                            <p>Managing campaigns across South America, producing podcasts, web series, and developing visual identity for internal corporate programs.</p>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item">
                         <div class="company-logo">
-                            <img src="https://grupobrg.com.br/img/logo.png" alt="Logo BRG Consultoria Financeira" loading="lazy">
+                            <img src="https://grupobrg.com.br/img/logo.png" alt="BRG Consultoria Financeira Logo" loading="lazy">
                         </div>
                         <div class="timeline-content">
-                            <span class="timeline-date">Setembro 2021 - Abril 2023</span>
-                            <h3 class="timeline-title">Gestor de Tráfego e Produtor de Conteúdo</h3>
+                            <span class="timeline-date">September 2021 - April 2023</span>
+                            <h3 class="timeline-title">Traffic Manager &amp; Content Producer</h3>
                             <h4 class="timeline-company">BRG Consultoria Financeira</h4>
-                            <p>Gestão de tráfego e conteúdo para múltiplas empresas do grupo, incluindo a School Business, e organização de eventos internos.</p>
+                            <p>Managed paid traffic and content production for multiple group companies, including School Business, and organized internal corporate events.</p>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item">
                         <div class="company-logo">
-                            <img src="https://instagram.fsrz1-1.fna.fbcdn.net/v/t51.2885-19/56191692_1180948198742817_8914607507960233984_n.jpg?cb=8438d1d6-89aba764&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41MDAuZXhwZXJpbWVudGFsIn0&_nc_ht=instagram.fsrz1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gG1kOORCymH_3y6qmDv1uAGgp6xKgQwVuwoQxqD1I5zMbBtwJ5ipK1IkjFJAnaHmlHsgbEO8wopVBCRAydk5b8t&_nc_ohc=oQzSeF8eQHcQ7kNvwGN11LK&_nc_gid=LtxacjKH6lT9rAlxfzjAIg&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_72dWfr07pKPLFNN68odpxprvCQJWz3gQDsXEXc1bShA&oe=6A433A62&_nc_sid=7a9f4b" alt="Logo Garagem Nerd Store" loading="lazy">
+                            <img src="https://instagram.fsrz1-1.fna.fbcdn.net/v/t51.2885-19/56191692_1180948198742817_8914607507960233984_n.jpg?cb=8438d1d6-89aba764&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41MDAuZXhwZXJpbWVudGFsIn0&_nc_ht=instagram.fsrz1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2gG1kOORCymH_3y6qmDv1uAGgp6xKgQwVuwoQxqD1I5zMbBtwJ5ipK1IkjFJAnaHmlHsgbEO8wopVBCRAydk5b8t&_nc_ohc=oQzSeF8eQHcQ7kNvwGN11LK&_nc_gid=LtxacjKH6lT9rAlxfzjAIg&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_72dWfr07pKPLFNN68odpxprvCQJWz3gQDsXEXc1bShA&oe=6A433A62&_nc_sid=7a9f4b" alt="Garagem Nerd Store Logo" loading="lazy">
                         </div>
                         <div class="timeline-content">
                             <span class="timeline-date">2019 - 2021</span>
-                            <h3 class="timeline-title">Fundador e Gestor de E-commerce</h3>
+                            <h3 class="timeline-title">Founder &amp; E-commerce Manager</h3>
                             <h4 class="timeline-company">Garagem Nerd Store</h4>
-                            <p>Criação e gerenciamento de e-commerce de nicho na modalidade de dropshipping, responsável por todas as operações, do marketing à logística.</p>
+                            <p>Created and managed a niche dropshipping e-commerce store, overseeing all operations from digital marketing to logistics and fulfillment.</p>
                         </div>
                     </div>
                 </div>
@@ -183,48 +277,51 @@
 
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">Competências</h2>
+                <div class="section-header">
+                    <span class="section-mark">Core Competencies</span>
+                    <h2 class="section-title">The toolkit behind the numbers</h2>
+                </div>
                 <div class="skills-list">
                     <div class="skill-item">
                         <i class="fas fa-chart-line skill-icon"></i>
                         <div class="skill-text">
-                            <h3>Gestão de Tráfego Omnichannel</h3>
-                            <p>Domínio estratégico e operacional na gestão de campanhas de performance no Google Ads, Meta Ads, TikTok Ads e LinkedIn Ads, escalando o ROI internacionalmente.</p>
+                            <h3>Omnichannel Traffic Management</h3>
+                            <p>Strategic and operational mastery in managing performance campaigns on Google Ads, Meta Ads, TikTok Ads, and LinkedIn Ads, scaling ROI internationally.</p>
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-magnifying-glass-chart skill-icon"></i>
                         <div class="skill-text">
                             <h3>Google Analytics 4 (GA4)</h3>
-                            <p>Profissional certificado com expertise em monitoramento avançado, estruturação de dataLayer e otimização de campanhas orientadas puramente por dados.</p>
+                            <p>Certified professional with expertise in advanced tracking, dataLayer structuring, and optimizing campaigns driven purely by data insights.</p>
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-robot skill-icon"></i>
                         <div class="skill-text">
-                            <h3>Workflows com IA Generativa</h3>
-                            <p>Aplicação diária de Inteligência Artificial para escala de produção: otimização de copy persuasiva, geração de imagens de alto impacto e produção de vídeos comerciais.</p>
+                            <h3>Generative AI Workflows</h3>
+                            <p>Daily application of Artificial Intelligence for production scale: persuasive copy optimization, high-impact image generation, and commercial video production.</p>
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-code skill-icon"></i>
                         <div class="skill-text">
-                            <h3>Desenvolvimento Web (Front-end)</h3>
-                            <p>Proficiência em HTML5, CSS3 e JavaScript para criação de interfaces responsivas, interativas e focadas na conversão (CRO) do usuário.</p>
+                            <h3>Web Development (Front-end)</h3>
+                            <p>Proficiency in HTML5, CSS3, and JavaScript for creating responsive, interactive, and conversion-rate-optimized (CRO) user interfaces.</p>
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-bullhorn skill-icon"></i>
                         <div class="skill-text">
-                            <h3>Endomarketing & Conteúdo B2B</h3>
-                            <p>Desenvolvimento de estratégias de comunicação cross-regional, produção de podcasts e webséries para engajamento interno e autoridade de marca.</p>
+                            <h3>Internal Marketing &amp; B2B Content</h3>
+                            <p>Development of cross-regional communication strategies, production of podcasts, and web series for internal engagement and brand authority.</p>
                         </div>
                     </div>
                     <div class="skill-item">
                         <i class="fas fa-palette skill-icon"></i>
                         <div class="skill-text">
                             <h3>Adobe Creative Suite</h3>
-                            <p>Domínio de Photoshop, Illustrator, InDesign e Premiere para refinamento visual e entrega de ativos de marketing de qualidade premium.</p>
+                            <p>Mastery of Photoshop, Illustrator, InDesign, and Premiere for visual refinement and delivery of premium-quality marketing assets.</p>
                         </div>
                     </div>
                 </div>
@@ -233,26 +330,29 @@
 
         <section id="contact" class="section">
             <div class="container contact-container">
-                <h2 class="section-title">Vamos discutir seu próximo projeto de sucesso?</h2>
-                <p class="contact-subtitle">Estou buscando ativamente novas colaborações. Preencha o formulário abaixo ou entre em contato diretamente.</p>
-                
+                <div class="section-header centered">
+                    <span class="section-mark">Get in Touch</span>
+                    <h2 class="section-title">Let's discuss your next successful project</h2>
+                </div>
+                <p class="contact-subtitle" style="margin-top: -1.5rem;">I am actively seeking new collaborations. Fill out the form below or contact me directly.</p>
+
                 <form id="lead-form" class="lead-form">
-                    <input type="text" id="lead-name" placeholder="Seu Nome" required>
-                    <input type="email" id="lead-email" placeholder="Seu E-mail Profissional" required>
-                    <textarea id="lead-message" placeholder="Conte um pouco sobre o projeto ou objetivo" required></textarea>
-                    <button type="submit" class="btn btn-primary btn-form">Enviar Mensagem</button>
+                    <input type="text" id="lead-name" placeholder="Your Name" required>
+                    <input type="email" id="lead-email" placeholder="Your Professional E-mail" required>
+                    <textarea id="lead-message" placeholder="Tell me a bit about your project or goal" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-form">Send Message</button>
                 </form>
-                
-                <div class="contact-actions" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+
+                <div class="contact-actions">
                     <a href="https://wa.me/5562999593986" target="_blank" class="btn contact-btn-whatsapp" id="track-wa" style="background-color: #25D366; color: white; display: flex; align-items: center; gap: 10px;">
-                        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> WhatsApp Direto
+                        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Direct WhatsApp
                     </a>
-                    <a href="mailto:natansantiagoamorim@gmail.com" class="btn contact-btn-email" id="track-email" style="background-color: #333; color: white; display: flex; align-items: center; gap: 10px; border: 1px solid var(--color-border);">
-                        <i class="fas fa-envelope" style="font-size: 1.5rem;"></i> Enviar E-mail
+                    <a href="mailto:natansantiagoamorim@gmail.com" class="btn contact-btn-email" id="track-email" style="background-color: #333; color: white; display: flex; align-items: center; gap: 10px; border: 1px solid var(--border);">
+                        <i class="fas fa-envelope" style="font-size: 1.5rem;"></i> Send an E-mail
                     </a>
                 </div>
 
-                <div class="social-links" style="margin-top: 3rem;">
+                <div class="social-links">
                     <a href="https://linkedin.com/in/natan-santiago-95b740226" target="_blank" class="social-icon" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
@@ -264,25 +364,25 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <p>&copy; 2026 Natan Santiago. Todos os direitos reservados.</p>
-            <button id="open-privacy" class="privacy-link">Política de Privacidade</button>
+            <p>&copy; 2026 Natan Santiago. All rights reserved.</p>
+            <button id="open-privacy" class="privacy-link">Privacy Policy</button>
         </div>
     </footer>
 
     <div id="privacy-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 style="margin-bottom: 1.5rem; color: var(--color-primary);">Política de Privacidade</h2>
-            <p style="margin-bottom: 1rem;">Sua privacidade é importante. Esta política descreve como as informações são tratadas ao visitar este portfólio profissional, em conformidade com as diretrizes de proteção de dados (LGPD).</p>
-            
-            <h3 style="margin: 1.5rem 0 0.5rem;">1. Coleta e Uso de Dados</h3>
-            <p style="margin-bottom: 1rem;">Não realizamos coleta oculta de dados pessoais sensíveis. As informações fornecidas voluntariamente ao clicar nos links de contato (como seu número no WhatsApp ou seu endereço de E-mail) são utilizadas exclusivamente para a comunicação direta e tratativas sobre projetos e orçamentos. Não compartilhamos, alugamos ou vendemos suas informações de contato a terceiros sob nenhuma circunstância.</p>
-            
-            <h3 style="margin: 1.5rem 0 0.5rem;">2. Cookies e Navegação</h3>
-            <p style="margin-bottom: 1rem;">Este site pode utilizar cookies básicos (como ferramentas do Google Analytics) com o objetivo exclusivo de entender o tráfego da página e melhorar a experiência e o desempenho do site. Esses dados são estatísticos e anônimos.</p>
-            
-            <h3 style="margin: 1.5rem 0 0.5rem;">3. Aceite</h3>
-            <p style="margin-bottom: 1rem;">Ao continuar a navegação neste site ou ao iniciar um contato através dos links fornecidos, você compreende e concorda com os termos aqui estabelecidos.</p>
+            <h2 style="margin-bottom: 1.5rem; color: var(--accent);">Privacy Policy</h2>
+            <p style="margin-bottom: 1rem;">Your privacy is important. This policy outlines how information is handled when visiting this professional portfolio, in compliance with data protection guidelines.</p>
+
+            <h3 style="margin: 1.5rem 0 0.5rem;">1. Data Collection and Usage</h3>
+            <p style="margin-bottom: 1rem;">We do not perform hidden collection of sensitive personal data. Information voluntarily provided by clicking on contact links (such as your WhatsApp number or your E-mail address) is used exclusively for direct communication and discussions regarding projects and quotes. We do not share, rent, or sell your contact information to third parties under any circumstances.</p>
+
+            <h3 style="margin: 1.5rem 0 0.5rem;">2. Cookies and Browsing</h3>
+            <p style="margin-bottom: 1rem;">This site may use basic cookies (such as Google Analytics tools) for the sole purpose of understanding page traffic and improving the user experience and site performance. This data is statistical and anonymous.</p>
+
+            <h3 style="margin: 1.5rem 0 0.5rem;">3. Consent</h3>
+            <p style="margin-bottom: 1rem;">By continuing to browse this site or by initiating contact through the provided links, you understand and agree to the terms set forth herein.</p>
         </div>
     </div>
 
