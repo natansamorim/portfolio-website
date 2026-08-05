@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | Natan Santiago</title>
+    <meta name="description" content="Natan Santiago's creative portfolio: Graphic Design, Art Direction, and Video Editing.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="scroll-progress"></div>
+    <div class="cursor-spotlight"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+
+    <aside class="rail">
+        <a href="index.html#hero" class="rail-mark">NS</a>
+        <div class="rail-ruler"><span class="rail-progress-dot"></span></div>
+        <div class="rail-clock">
+            <span class="rail-clock-dot"></span>
+            <span class="rail-clock-time" id="railTime">--:--</span>
+            <span class="rail-clock-label">San Diego</span>
+        </div>
+    </aside>
+
+    <a href="https://wa.me/5562999593986" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html#hero" class="nav-logo">Natan Santiago</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#projects" class="nav-link">Official Projects</a></li>
+                <li><a href="portfolio-criativo.html" class="nav-link active">Creative Portfolio</a></li>
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="index.html#contact" class="nav-link btn btn-nav">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </nav>
+    </header>
+
+    <main style="padding-top: 4.5rem;">
+
+        <section class="section">
+            <div class="container">
+                <div class="page-intro">
+                    <span class="section-mark">Selected Work</span>
+                    <h1 class="section-title" style="margin-bottom: 1rem;">Design &amp; <em style="font-style:italic; color:var(--accent);">art direction</em></h1>
+                    <p class="section-sub">
+                        A selection of my work in visual identity, branding, and high-impact image generation combining the Adobe suite with Artificial Intelligence tools.
+                    </p>
+                    <a href="https://www.behance.net/natansantiago" target="_blank" class="btn btn-primary magnetic">
+                        <i class="fab fa-behance"></i> View full profile on Behance
+                    </a>
+                </div>
+
+                <div class="bento-grid">
+
+                    <a href="https://www.behance.net/gallery/214437355/Fazendo-Arte-Logo" target="_blank" class="bento-item tilt-card">
+                        <img src="https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Fazendo Arte - Logo" loading="lazy">
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Fazendo Arte</h3>
+                            <p class="bento-desc">Logo creation and brand visual identity project.</p>
+                            <span class="bento-tag">Branding</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.behance.net/gallery/153791393/Logo-design" target="_blank" class="bento-item tilt-card">
+                        <img src="https://images.pexels.com/photos/1337380/pexels-photo-1337380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Logo Design" loading="lazy">
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Logo Design</h3>
+                            <p class="bento-desc">Development and conceptualization of a corporate logo.</p>
+                            <span class="bento-tag">Graphic Design</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.behance.net/gallery/214940923/Social-Media-Post" target="_blank" class="bento-item tilt-card">
+                        <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Social Media Design" loading="lazy">
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">Social Media Posts</h3>
+                            <p class="bento-desc">Creation of graphic assets for campaigns and social media.</p>
+                            <span class="bento-tag">Social Media</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.behance.net/gallery/251969041/AI-powered-art-direction" target="_blank" class="bento-item tilt-card">
+                        <img src="https://images.pexels.com/photos/3356416/pexels-photo-3356416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Art Direction and AI" loading="lazy">
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">AI-Powered Art Direction</h3>
+                            <p class="bento-desc">Composition of environments and conceptual images optimized in generative workflows.</p>
+                            <span class="bento-tag">Creative Direction</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.behance.net/gallery/251971917/AI-generated-models-for-advertisements" target="_blank" class="bento-item tilt-card">
+                        <img src="https://images.pexels.com/photos/8566526/pexels-photo-8566526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI Generated Models" loading="lazy">
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">AI Generated Models</h3>
+                            <p class="bento-desc">Creation of exclusive hyper-realistic digital models for advertising campaigns.</p>
+                            <span class="bento-tag">Generative AI</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.behance.net/gallery/251987113/Digital-influencers-created-by-AI" target="_blank" class="bento-item tilt-card">
+                        <img src="https://images.pexels.com/photos/8566526/pexels-photo-8566526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI Digital Influencers" loading="lazy">
+                        <div class="bento-overlay">
+                            <h3 class="bento-title">AI Digital Influencers</h3>
+                            <p class="bento-desc">Development of avatars and digital influencers using advanced AI tools.</p>
+                            <span class="bento-tag">AI Influencers</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--bg-elevated);">
+            <div class="container">
+                <div class="section-divider">
+                    <span class="section-mark">Audiovisual</span>
+                    <h2 class="section-title" style="margin-bottom: 1rem;">Shooting &amp; editing</h2>
+                    <p class="section-sub">
+                        On-site audiovisual projects where I handled the photography direction, capturing real footage, and the final editing process, rhythm, and sound design.
+                    </p>
+                </div>
+
+                <div class="ig-grid">
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/DO9InUYEikG/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/C6HVMwsB1P8/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/Cxv_fcGSDYo/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/CxX4sbLuJOG/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-divider">
+                    <span class="section-mark">Post-production</span>
+                    <h2 class="section-title" style="margin-bottom: 1rem;">Image manipulation &amp; stock integration</h2>
+                    <p class="section-sub">
+                        Projects created by merging corporate assets with high-quality stock footage, ensuring narrative fluidity and a strong brand identity.
+                    </p>
+                </div>
+
+                <div class="ig-grid">
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/DJ4TEAihHIB/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/C9czsGRu6xw/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/C6lnKrwPs8B/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/DEMzfrTqSHC/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                    <div class="ig-container">
+                        <iframe src="https://www.instagram.com/reel/C_saaVZKQXB/embed/" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    </div>
+                </div>
+
+                <div class="back-link-wrap" style="margin-top: 3.5rem;">
+                    <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Natan Santiago. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
